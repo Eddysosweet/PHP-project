@@ -27,11 +27,12 @@
 
         public function Add(){
             if(isset($_POST['add'])){
+                var_dump($_POST);
                 $avatar = $_FILES['avatar']['name'];
                 $avatar_name = $_FILES['avatar']['tmp_name'];
                 $name = $_POST['name'];
 
-                $sql = "INSERT INTO teachers (name,avatar) VALUES ('$name',$avatar)";
+                $sql = "INSERT INTO teachers (name,avatar) VALUES ('$name','$avatar')";
                 if($this->connect()->query($sql)){
                     header("location:http://localhost/php-project/admin/home/listTeachers.php");
                 }else{
@@ -67,6 +68,25 @@
             $sql = "DELETE FROM teachers WHERE id = $id";
             mysqli_query($this->connect(),$sql);
             header("location:http://localhost/php-project/admin/home/listTeachers.php");
+        }
+
+        //login
+        public function login(){
+            if(isset($_POST['login']) && $_POST['username'] = !'' && $_POST['password'] = !'' ){
+                
+                $email = $_POST['email'];
+                $password = $_POST['passwords'];
+
+                $sql = "SELECT * FROM admin WHERE username = '$email' and password = '$password' ";
+                $result = mysqli_query($this->connect(),$sql);
+
+                if(mysqli_num_rows($result) == 1){
+                    $_SESSION['myEmail'] = $email;
+                    header("location:http://localhost/php-project/admin/admin.php");
+                }else{
+                   
+                }
+            }
         }
     }
 

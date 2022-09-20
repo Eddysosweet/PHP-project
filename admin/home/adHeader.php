@@ -24,7 +24,8 @@
                     Admin
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#"><i class=" me-2 text-fuchsia-900 fa-solid fa-right-from-bracket"></i>Logout</a></li>
+                    <li><a class="dropdown-item" href="./home/logout.php">
+                    <i class=" me-2 text-fuchsia-900 fa-solid fa-right-from-bracket"></i>Logout</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">account security</a></li>
                 </ul>

@@ -38,7 +38,7 @@
                     <tr class="text-center">
                         <td><?=$row['id']?></td>
                         <td><?=$row['name']?></td>
-                        <td><img class="m-auto" width="120px"  src=".././../img/<?=$row['avatar']?>" alt=""></td>
+                        <td><img class="m-auto" width="100px"  src=".././.././img/<?=$row['avatar']?>" alt=""></td>
                         <td class="w-1/5"><a class="btn btn-danger" href="../server/deleteTeachers.php?id=<?=$row['id']?>">Delete</a></td>
                         <td class="w-1/5"><a class="btn btn-warning" href="../server/editTeachers.php?id=<?=$row['id']?>">Edit</a></td>
                     </tr>
