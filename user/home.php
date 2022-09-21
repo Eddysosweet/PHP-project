@@ -1,6 +1,6 @@
 <?php include_once 'commons/head.php';?>
 <body>
-   <?php include_once  'commons/body-menu.php';?>
+   <?php include_once 'commons/body-menu.php';?>
 
     <!-- banner -->
     <div>
@@ -100,7 +100,7 @@
             <div class="row">
                 <div class="col-12 col-md-3 cursor-pointer">
                     <div class="border hover:shadow-xl rounded-md">
-                        <img class="w-100" height="300px" src="img/khoa-hoc-wp-1-350x223.jpg" alt="">
+                        <img class="w-100" height="300px" src="../img/khoa-hoc-wp-1-350x223.jpg" alt="">
                         <div class="px-4 py-3 text-sm lg:text-xl">
                             <div class="py-3">
                                 <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
@@ -121,7 +121,7 @@
                 </div>
                 <div class="col-12 col-md-3 cursor-pointer my-3 my-md-0">
                     <div class="border hover:shadow-xl rounded-md">
-                        <img class="w-100" height="300px" src="img/khoa-hoc-wp-2-350x223.jpg" alt="">
+                        <img class="w-100" height="300px" src="../img/khoa-hoc-wp-2-350x223.jpg" alt="">
                         <div class="px-4 py-3 text-sm lg:text-xl">
                             <div class="py-3">
                                 <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
@@ -142,7 +142,7 @@
                 </div>
                 <div class="col-12 col-md-3 cursor-pointer my-3 my-md-0">
                     <div class="border hover:shadow-xl rounded-md">
-                        <img class="w-100" height="300px" src="img/khoa-hoc-wp-2-350x223.jpg" alt="">
+                        <img class="w-100" height="300px" src="../img/khoa-hoc-wp-2-350x223.jpg" alt="">
                         <div class="px-4 py-3 text-sm lg:text-xl">
                             <div class="py-3">
                                 <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
@@ -163,7 +163,7 @@
                 </div>
                 <div class="col-12 col-md-3 cursor-pointer">
                     <div class="border hover:shadow-xl rounded-md">
-                        <img class="w-100" height="300px" src="img/khoa-hoc-wp-3-350x223.jpg" alt="">
+                        <img class="w-100" height="300px" src="../img/khoa-hoc-wp-3-350x223.jpg" alt="">
                         <div class="px-4 py-3 text-sm lg:text-xl">
                             <div class="py-3">
                                 <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
@@ -192,7 +192,7 @@
         <div class="row">
             <div class="col-12 col-md-3 cursor-pointer">
                 <div class="border hover:shadow-xl rounded-md">
-                    <img class="w-100" height="300px" src="img/khoa-hoc-wp-1-350x223.jpg" alt="">
+                    <img class="w-100" height="300px" src="../img/khoa-hoc-wp-1-350x223.jpg" alt="">
                     <div class="px-4 py-3 text-sm lg:text-xl">
                         <div class="py-3">
                             <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
@@ -213,7 +213,7 @@
             </div>
             <div class="col-12 col-md-3 cursor-pointer my-3 my-md-0">
                 <div class="border hover:shadow-xl rounded-md">
-                    <img class="w-100" height="300px" src="img/khoa-hoc-wp-2-350x223.jpg" alt="">
+                    <img class="w-100" height="300px" src="../img/khoa-hoc-wp-2-350x223.jpg" alt="">
                     <div class="px-4 py-3 text-sm lg:text-xl">
                         <div class="py-3">
                             <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
@@ -234,7 +234,7 @@
             </div>
             <div class="col-12 col-md-3 cursor-pointer">
                 <div class="border hover:shadow-xl rounded-md">
-                    <img class="w-100" height="300px" src="img/khoa-hoc-wp-3-350x223.jpg" alt="">
+                    <img class="w-100" height="300px" src="../img/khoa-hoc-wp-3-350x223.jpg" alt="">
                     <div class="px-4 py-3 text-sm lg:text-xl">
                         <div class="py-3">
                             <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
@@ -255,7 +255,7 @@
             </div>
             <div class="col-12 col-md-3 cursor-pointer">
                 <div class="border hover:shadow-xl rounded-md">
-                    <img class="w-100" height="300px" src="img/khoa-hoc-wp-3-350x223.jpg" alt="">
+                    <img class="w-100" height="300px" src="../img/khoa-hoc-wp-3-350x223.jpg" alt="">
                     <div class="px-4 py-3 text-sm lg:text-xl">
                         <div class="py-3">
                             <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
@@ -382,30 +382,30 @@
             <div class="col-12 col-md-7">
                 <div class="row pb-4">
                     <div class=" col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="img/teacher.jpg " alt=" " width="100% "></a>
+                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
                         <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
 
                     </div>
                     <div class="col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="img/teacher.jpg " alt=" " width="100% "></a>
+                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
                         <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
                     </div>
                     <div class="col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="img/teacher.jpg " alt=" " width="100% "></a>
+                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
                         <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
                     </div>
                 </div>
                 <div class="row ">
                     <div class="col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="img/teacher.jpg " alt=" " width="100% "></a>
+                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
                         <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
                     </div>
                     <div class="col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="img/teacher.jpg " alt=" " width="100% "></a>
+                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
                         <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
                     </div>
                     <div class="col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="img/teacher.jpg " alt=" " width="100% "></a>
+                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
                         <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
                     </div>
                 </div>

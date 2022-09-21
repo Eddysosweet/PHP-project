@@ -1,15 +1,15 @@
 <?php
-    include "../database/db.php";
+    include "database/db.php";
     $db = new Database();
     $db->Add();
     $list = $db->getListTeachers();
-    include "../home/adHeader.php";
-    include "../server/addTeachers.php";
+    include "home/adHeader.php";
+    include "server/addTeachers.php";
 ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-3 col-lg-2 p-0 border-end h-screen position-relative">
-            <?php include "../home/adSlidebars.php" ?>
+            <?php include "home/adSlidebars.php" ?>
         </div>
         <div class="col-12 col-md-9 col-lg-10 p-0"> 
             <div class=" d-flex justify-content-between mx-5 my-3">
@@ -39,8 +39,8 @@
                         <td><?=$row['id']?></td>
                         <td><?=$row['name']?></td>
                         <td><img class="m-auto" width="100px"  src=".././.././img/<?=$row['avatar']?>" alt=""></td>
-                        <td class="w-1/5"><a class="btn btn-danger" href="../server/deleteTeachers.php?id=<?=$row['id']?>">Delete</a></td>
-                        <td class="w-1/5"><a class="btn btn-warning" href="../server/editTeachers.php?id=<?=$row['id']?>">Edit</a></td>
+                        <td class="w-1/5"><a class="btn btn-danger" href="server/deleteTeachers.php?id=<?=$row['id']?>">Delete</a></td>
+                        <td class="w-1/5"><a class="btn btn-warning" href="server/editTeachers.php?id=<?=$row['id']?>">Edit</a></td>
                     </tr>
                     <?php endforeach ?>
                 </table>        

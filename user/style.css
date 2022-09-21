@@ -1,5 +1,5 @@
 #register{
-    background-image: url('img/bg-01.jpg');
+    background-image: url('../img/bg-01.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;

@@ -1,8 +1,8 @@
 <?php 
-    session_start();
-    if(!isset($_SESSION['myEmail'])){
-        header('location:http://localhost/php-project/');
-    }
+//    session_start();
+//    if(!isset($_SESSION['myEmail'])){
+//        header('location:http://localhost/php-project/');
+//    }
 include "../admin/home/adHeader.php";?>
 <div class="container-fluid">
     <div class="row">

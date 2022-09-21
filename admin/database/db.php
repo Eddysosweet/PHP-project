@@ -1,7 +1,7 @@
 <?php
     class Database{
         private $server = 'localhost';
-        private $usename = 'root';
+        private $username = 'root';
         private $password = '';
         private $database = 'unica';
 
@@ -9,7 +9,7 @@
 
         //kết nối cơ sở dữ liệu
         public function connect(){
-            $this->conn = new mysqli($this->server,$this->usename,$this->password,$this->database);
+            $this->conn = new mysqli($this->server,$this->username,$this->password,$this->database);
             if($this->conn){
                 mysqli_query($this->conn,"SET NAMES 'utf8'");
             }else{
