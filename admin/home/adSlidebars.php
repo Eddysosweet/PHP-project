@@ -8,7 +8,7 @@
         </li>
 
         <li class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
-            <a class="text-2xl hover:text-white font-bold" href="listTeachers.php">
+            <a class="text-2xl hover:text-white font-bold" href="list.php">
             <i class="text-indigo-800 me-2 fa-solid fa-chalkboard-user"></i>Teachers
             </a>
         </li>
@@ -31,10 +31,5 @@
             </a>
         </li>
 
-        <li style="bottom:65px;" class="position-absolute p-3 border w-100 hover:bg-blue-400 hover:text-white">
-            <a class="text-2xl hover:text-white font-bold" href="./home/logout.php">
-            <i class="me-2 text-fuchsia-900 fa-solid fa-right-from-bracket"></i>Logout
-            </a>
-        </li>
     </ul> 
 </div>

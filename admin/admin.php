@@ -11,7 +11,7 @@ include "../admin/home/adHeader.php";?>
         </div>
         <div class="col-12 col-md-9 col-lg-10 p-0">
             
-            <?php include "../admin/home/adFooter.php" ?>
         </div>
     </div>
 </div>
+            <?php include "../admin/home/adFooter.php" ?>
