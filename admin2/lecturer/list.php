@@ -7,7 +7,7 @@ include_once './../../admin/home/adHeader.php';
             <?php include "./../../admin/home/adSlidebars.php"; ?>
         </div>
         <div class="col-12 col-md-10 p-0">
-
+            <h1>helo</h1>
         </div>
     </div>
 </div>
