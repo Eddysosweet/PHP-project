@@ -1,9 +1,9 @@
 <?php 
    session_start();
    if(isset($_SESSION['myEmail'])){
-        header('location:http://localhost/php-project/admin/admin.php');
+        header('location:../admin/admin.php');
    }
-include "../php-project/admin/database/db.php";
+include "../admin/database/db.php";
     $db = new Database();
     $db->login();
 ?>

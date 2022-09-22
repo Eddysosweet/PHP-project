@@ -14,7 +14,7 @@
         </li>
 
         <li class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
-            <a class="text-2xl hover:text-white font-bold" href="">
+            <a class="text-2xl hover:text-white font-bold" href="listCourses.php">
             <i class="text-yellow-600 me-2 fa-solid fa-calendar"></i>Courses
             </a>
         </li>

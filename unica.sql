@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 20, 2022 lúc 10:04 AM
--- Phiên bản máy phục vụ: 10.4.24-MariaDB
--- Phiên bản PHP: 8.1.6
+-- Máy chủ: localhost:3306
+-- Thời gian đã tạo: Th9 22, 2022 lúc 04:25 PM
+-- Phiên bản máy phục vụ: 5.7.33
+-- Phiên bản PHP: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,6 +32,13 @@ CREATE TABLE `admin` (
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`) VALUES
+(1, 'admin@gmail.com', '123456789');
 
 -- --------------------------------------------------------
 
@@ -70,7 +77,7 @@ CREATE TABLE `courses` (
   `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `price` float NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `time` float NOT NULL
+  `time` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -84,6 +91,15 @@ CREATE TABLE `teachers` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `avatar` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `teachers`
+--
+
+INSERT INTO `teachers` (`id`, `name`, `avatar`) VALUES
+(17, 'canvandiet23', '../img/1663813507teacher.jpg'),
+(18, 'tao ký ngức fan111111111111', '../img/1663813515bg-01.jpg'),
+(19, 'canvandiet23', '../img/166381352616638125491663812531khoa-hoc-wp-2-350x223.jpg');
 
 -- --------------------------------------------------------
 
@@ -109,6 +125,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `cart`
@@ -139,6 +161,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
@@ -148,13 +176,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT cho bảng `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `users`

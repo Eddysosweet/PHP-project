@@ -1,10 +1,10 @@
 <?php
     include "database/db.php";
     $db = new Database();
-    $db->Add();
-    $list = $db->getListTeachers();
+    $list = $db->listCourses();
+    $db->Addcourses();
     include "home/adHeader.php";
-    include "server/addTeachers.php";
+    include "server/addcourses.php";
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -31,6 +31,9 @@
                         <th>id</th>
                         <th>Name</th>
                         <th>Avatar</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Time</th>
                         <th class="w-1/5">Delete</th>
                         <th class="w-1/5">Edit</th>
                     </tr>
@@ -38,12 +41,16 @@
                     <tr class="text-center">
                         <td><?=$row['id']?></td>
                         <td><?=$row['name']?></td>
-                        <td><img class="m-auto" width="100px"  src="<?=$row['avatar']?>" alt=""></td>
-                        <td class="w-1/5"><a class="btn btn-danger" href="../admin/server/delete.php?id=<?=$row['id']?>">Delete</a></td>
-                        <td class="w-1/5"><a class="btn btn-warning" href="../admin/server/editTeachers.php?id=<?=$row['id']?>">Edit</a></td>
+                        <td><img class="m-auto" width="100px"  src="<?=$row['image']?>" alt=""></td>
+                        <td><?= $db-> currency_format($row['price'])?></td>
+                        <td><?=$row['description']?></td>
+                        <td><?=$row['time']?></td>
+                        <td class="w-1/5"><a class="btn btn-danger" href="../admin/server/deletecourses.php?id=<?=$row['id']?>">Delete</a></td>
+                        <td class="w-1/5"><a class="btn btn-warning" href="../admin/server/editcourses.php?id=<?=$row['id']?>">Edit</a></td>
                     </tr>
                     <?php endforeach ?>
                 </table>
+            
             </div>
             <?php include "home/adFooter.php" ?>
         </div>
