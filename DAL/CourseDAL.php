@@ -72,6 +72,13 @@ class CourseDAL extends DB implements ICRUD
             return false;
         }
     }//U
+    public function getListByTeacherId($id)
+    {
+        $sql = "SELECT * FROM $this->tableName WHERE teacher_id=$id";
+        $rs = $this->pdo->query($sql);
+        $rs->setFetchMode(PDO::FETCH_OBJ);
+        return $rs;
+    }
 }
 
 ?>

@@ -27,9 +27,10 @@ class TeacherDAL extends DB implements ICRUD
 
     public function addOne($data)
     {
-        $prp = $this->pdo->prepare("INSERT INTO $this->tableName(name,image) VALUES(:name,:image)");
+        $prp = $this->pdo->prepare("INSERT INTO $this->tableName(name,avatar,degree) VALUES(:name,:image,:degree)");
         $prp->bindParam(':name', $data['name']);
         $prp->bindParam(':image', $data['image']);
+        $prp->bindParam(':degree', $data['degree']);
         try {
             $prp->execute();
             return true;
@@ -54,9 +55,10 @@ class TeacherDAL extends DB implements ICRUD
 
     public function updateOne($id, $data)
     {
-        $prp = $this->pdo->prepare("UPDATE $this->tableName SET name=:name,image=:image WHERE id=$id");
+        $prp = $this->pdo->prepare("UPDATE $this->tableName SET name=:name,avatar=:image, degree=:degree WHERE id=$id");
         $prp->bindParam(':name', $data['name']);
         $prp->bindParam(':image', $data['image']);
+        $prp->bindParam(':degree', $data['degree']);
         try {
             $prp->execute();
             return true;
