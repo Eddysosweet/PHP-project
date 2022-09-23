@@ -146,7 +146,7 @@
                 $description = $_POST['description'];
                 $sql = "UPDATE courses SET name ='$name',image='$url',price='$price',description='$description',time='$time' WHERE id = '$id'";
                 if($this->connect()->query($sql)){
-                    header("location:../admin/listCourses.php");
+                    header("location:../listCourses.php");
                 }else{
                     echo "lỗi";
                 }
@@ -156,7 +156,7 @@
         public function deleteCourses($id){
             $sql = "DELETE FROM courses WHERE id = $id";
             mysqli_query($this->connect(),$sql);
-            header("location:../admin/listCourses.php");
+            header("location:../listCourses.php");
         }
     }
 
