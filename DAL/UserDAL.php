@@ -1,42 +1,58 @@
 <?php
 require_once 'DB.php';
 require_once 'ICRUD.php';
-class UserDAL extends DB implements ICRUD{
-    public function __construct(){
+
+class UserDAL extends DB implements ICRUD
+{
+    public function __construct()
+    {
         parent::__construct();//chạy các lệnh trong constructor của cha
         $this->setTableName("users");
     }
 
-    public function getList(){
+    public function getList()
+    {
         $sql = "SELECT * FROM $this->tableName";
         $rs = $this->pdo->query($sql);
         return $rs->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getOne($id){
+    public function getOne($id)
+    {
         $sql = "SELECT * FROM $this->tableName WHERE id=$id";
         $rs = $this->pdo->query($sql);
         $rs->setFetchMode(PDO::FETCH_OBJ);
         return $rs->fetch();
     }//R - one
 
-    public function addOne($data){
+    public function checkUser($email)
+    {
+        $prp = $this->pdo->prepare("SELECT count(*) FROM $this->tableName WHERE email=:email");
+        $prp->bindParam(':email', $email);
+        $prp->execute();
+        $rs = $prp->fetchColumn();
+        return $rs;
+    }//R - one
+
+    public function addOne($data)
+    {
         $prp = $this->pdo->prepare("INSERT INTO $this->tableName(name,email,password,phone) VALUES(:name,:email,:password,:phone)");
-        $prp->bindParam(':name',$data['name']);
-        $prp->bindParam(':email',$data['email']);
-        $prp->bindParam(':password',$password);
-        $prp->bindParam(':phone',$data['phone']);
-        $password=md5(md5($data['password']));
-        try{
+        $prp->bindParam(':name', $data['name']);
+        $prp->bindParam(':email', $data['email']);
+        $prp->bindParam(':password', $password);
+        $prp->bindParam(':phone', $data['phone']);
+        $password = md5(md5($data['password']));
+        try {
             $prp->execute();
             return true;
-        }catch(Exception $e){
+        } catch (Exception $e) {
             echo $e->getMessage();
             return false;
         }
     }//C
 
-    public function deleteOne($id){
+    public function deleteOne($id)
+    {
 
         try {
             //code...
@@ -48,25 +64,28 @@ class UserDAL extends DB implements ICRUD{
 
     }//D
 
-    public function updateOne($id,$data){
+    public function updateOne($id, $data)
+    {
         $prp = $this->pdo->prepare("UPDATE $this->tableName SET name=:name email=:email,password=:password,phone=:phone WHERE id=$id");
-        $prp->bindParam(':name',$data['name']);
-        $prp->bindParam(':email',$data['email']);
-        $prp->bindParam(':password',$password);
-        $prp->bindParam(':phone',$data['phone']);
+        $prp->bindParam(':name', $data['name']);
+        $prp->bindParam(':email', $data['email']);
+        $prp->bindParam(':password', $password);
+        $prp->bindParam(':phone', $data['phone']);
 
-        $password=md5(md5($data['password']));
-        try{
+        $password = md5(md5($data['password']));
+        try {
             $prp->execute();
             return true;
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return false;
         }
     }//U
-    public function check($user,$password){
+
+    public function check($user, $password)
+    {
         $prp = $this->pdo->prepare("SELECT count(*) FROM $this->tableName WHERE email=:email AND password=:password");
-        $prp->bindParam(':email',$user);
-        $prp->bindParam(':password',$password);
+        $prp->bindParam(':email', $user);
+        $prp->bindParam(':password', $password);
         $prp->execute();
         $rs = $prp->fetchColumn();
         return $rs;

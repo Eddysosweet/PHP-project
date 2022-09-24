@@ -8,7 +8,7 @@ $sotrang = ceil($so / 12);
 $vitri = 0;
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = $_GET['id'];
-    $vitri = $id - 1;
+    $vitri = ($id - 1)*12;
 }
 $rs = $course->getListByPage($vitri,12);
 ?>
@@ -37,7 +37,7 @@ $rs = $course->getListByPage($vitri,12);
                             <button class="bg-orange-500 
                       text-white font-bold py-2 px-4 border 
                       rounded">
-                                <a class="hover:text-white" href="detail-course.php">Chi tiết</a>
+                                <a class="hover:text-white" href="detail-course.php?id=<?php echo $list->id ?>">Chi tiết</a>
                             </button>
                         </div>
                     </div>

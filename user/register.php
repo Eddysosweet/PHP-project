@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +19,7 @@
     <div id="register" class="flex justify-center items-center">
         <div class="register_body  md:w-2/4 xl:w-4/12">
            <h1 class="text-center text-3xl py-9">ĐĂNG KÝ TÀI KHOẢN</h1>
-           <form class="sm:px-9 input_form" action="" method="post">
+           <form class="sm:px-9 input_form" action="handle-signup.php" method="post">
                 <input class="w-full my-2" type="text" name="name" placeholder="Họ và tên">
                 <input class="w-full my-2" type="email" name="email" placeholder="Email">
                 <input class="w-full my-2" type="text" name="phone" placeholder="Số điện thoại">
@@ -35,6 +38,10 @@
                       >Bạn đồng ý với điều khoản sử dụng</label
                     >
                   </div>
+               <div class="text-red-500 my-2 text-sm md:text-lg"><?php if(isset($_SESSION['fail'])){
+                       echo $_SESSION['fail'];
+                       unset($_SESSION['fail']);
+                   } ?></div>
                   <button
                   type="submit"
                   class="inline-block px-7 my-3 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"

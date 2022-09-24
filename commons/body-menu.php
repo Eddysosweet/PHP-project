@@ -15,7 +15,8 @@ session_start();
                             chủ</a>
                     </li>
                     <li class="nav-item dropdown list-inline-item">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             Khoá học
                         </a>
                         <ul class="dropdown-menu">
@@ -26,7 +27,8 @@ session_start();
                         </ul>
                     </li>
                     <li class="nav-item dropdown list-inline-item">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             Giới thiệu
                         </a>
                         <ul class="dropdown-menu">
@@ -41,9 +43,10 @@ session_start();
                             hệ</a>
                     </li>
                     <?php
-                    if(isset($_SESSION['user'])){ ?>
+                    if (isset($_SESSION['user'])) { ?>
                         <li class="nav-item dropdown list-inline-item">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
                                 <i class="bi bi-person-circle"></i><?php echo $_SESSION['user']['email'] ?>
                             </a>
                             <ul class="dropdown-menu">
@@ -51,33 +54,47 @@ session_start();
                                 <li><a class="dropdown-item" href="#">Quản lí tài khoản</a></li>
                             </ul>
                         </li>
-                    <?php
-                    }else{
-                    ?>
-                    <li class="list-inline-item me-4">
-                        <a class="nav-link px-1" href="login.php">Đăng
-                            nhập</a>
-                    </li>
-                    <li class="list-inline-item me-4">
-                        <a class="nav-link px-1" href="register.php">Đăng
-                            ký</a>
-                    </li>
-                    <?php
+                        <li class="list-inline-item me-4">
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Tìm kiếm"
+                                       aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit"><i class="fa-solid
+                                            fa-magnifying-glass"></i></button>
+                            </form>
+                        </li>
+                        <li class="list-inline-item me-2">
+                            <a href="cart.php"><i class="text-xl fa-solid fa-cart-shopping hover:text-red-600"></i></a>
+                        </li>
+                        <?php
+                    } else {
+                        ?>
+                        <li class="list-inline-item me-4">
+                            <a class="nav-link px-1" href="login.php">Đăng
+                                nhập</a>
+                        </li>
+                        <li class="list-inline-item me-4">
+                            <a class="nav-link px-1" href="register.php">Đăng
+                                ký</a>
+                        </li>
+                        <li class="list-inline-item me-4">
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Tìm kiếm"
+                                       aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit"><i class="fa-solid
+                                            fa-magnifying-glass"></i></button>
+                            </form>
+                        </li>
+                        <li class="list-inline-item me-2">
+                            <a href="login.php"><i class="text-xl fa-solid fa-cart-shopping hover:text-red-600"></i></a>
+                        </li>
+                        <?php
                     }
                     ?>
-                    <li class="list-inline-item me-4">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit"><i class="fa-solid
-                                            fa-magnifying-glass"></i></button>
-                        </form>
-                    </li>
-                    <li class="list-inline-item me-2">
-                        <i class="text-xl fa-solid fa-cart-shopping"></i>
-                    </li>
+
                 </ul>
                 <div class="d-block d-lg-none float-end">
-                    <button class="btn btn-outline-none p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                    <button class="btn btn-outline-none p-0" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                         <i class='bx bx-menu bx-md bx-flip-vertical'></i>
                     </button>
                 </div>
@@ -89,13 +106,13 @@ session_start();
         <div class="offcanvas-header ">
             <img class="logo-image w-25" src="https://unica.vn/media/img/logo-unica.svg" alt="">
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"><i
-                    class="text-xl text-danger fa-solid fa-xmark"></i>
+                        class="text-xl text-danger fa-solid fa-xmark"></i>
             </button>
         </div>
         <div class="offcanvas-body p-0">
             <ul class="p-0">
                 <?php
-                if(isset($_SESSION['user'])){ ?>
+                if (isset($_SESSION['user'])) { ?>
                     <li class="list-group-item list-group-item-action">
                         <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false">
@@ -107,15 +124,15 @@ session_start();
                         </ul>
                     </li>
                     <?php
-                }else{
-                ?>
-                <li class="list-group-item list-group-item-action">
-                    <a class="nav-link text-dark" href="login.php">Đăng nhập</a>
-                </li>
-                <li class="list-group-item list-group-item-action">
-                    <a class="nav-link text-dark" href="register.php">Đăng ký</a>
-                </li>
-                <?php
+                } else {
+                    ?>
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link text-dark" href="login.php">Đăng nhập</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link text-dark" href="register.php">Đăng ký</a>
+                    </li>
+                    <?php
                 }
                 ?>
                 <li class="list-group-item list-group-item-action">
@@ -152,12 +169,23 @@ session_start();
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
+                                    class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </li>
+                <?php
+                if (isset($_SESSION['user'])) { ?>
                 <li class="list-group-item list-group-item-action">
-                    <i class="text-xl fa-solid fa-cart-shopping"></i>
+                    <a href="cart.php"><i class="text-xl fa-solid fa-cart-shopping hover:text-red-600"></i></a>
                 </li>
+                    <?php
+                } else {
+                ?>
+                <li class="list-group-item list-group-item-action">
+                    <a href="login.php"><i class="text-xl fa-solid fa-cart-shopping hover:text-red-600"></i></a>
+                </li>
+                <?php
+                }
+                ?>
 
             </ul>
         </div>

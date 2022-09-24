@@ -27,6 +27,14 @@ session_start();
 <body>
 <section id="register" class="flex justify-center items-center p-6">
     <div class="login_body container md:w-2/4 xl:w-4/12 py-10">
+
+        <?php if(isset($_SESSION['success'])){ ?>
+        <div class="border-green-500 rounded border text-center text-green-500 mb-4 text-sm md:text-lg">
+          <?php  echo $_SESSION['success']; ?>
+        </div>
+        <?php
+            unset($_SESSION['success']);
+        } ?>
         <h1 class="text-center text-3xl pb-7">ĐĂNG NHẬP</h1>
         <form class="sm:px-9 input_form" action="handle-login.php" method="post">
             <div class="mb-6">
@@ -45,6 +53,7 @@ session_start();
                         placeholder="Mật khẩu"
                 />
             </div>
+
             <div class="text-red-500 mb-2 text-sm md:text-lg"><?php if(isset($_SESSION['fail'])){
                 echo $_SESSION['fail'];
                 unset($_SESSION['fail']);

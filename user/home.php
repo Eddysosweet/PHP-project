@@ -1,3 +1,13 @@
+<?php
+include_once '../DAL/LecturerDAL.php';
+include_once '../DAL/CourseDAL.php';
+$teacher = new TeacherDAL();
+$course = new CourseDAL();
+$list = $teacher->getList();
+
+$new = $course->getListByPage(0,8);
+$popular= $course->getListByPage(0,8);
+?>
 <?php include_once '../commons/head.php';?>
 <body>
    <?php include_once '../commons/body-menu.php';?>
@@ -98,90 +108,30 @@
             <h3 class="font-bold text-sm md:text-2xl mb-2">Khoá học mới ! <span style="font-weight: 200  ;"
                     class="float-end text-sm md:text-xl"><a href="#">xem thêm -></a></span></h3>
             <div class="row">
-                <div class="col-12 col-md-3 cursor-pointer">
-                    <div class="border hover:shadow-xl rounded-md">
-                        <img class="w-100" height="300px" src="../img/khoa-hoc-wp-1-350x223.jpg" alt="">
-                        <div class="px-4 py-3 text-sm lg:text-xl">
-                            <div class="py-3">
-                                <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
-                                <p>Lớp học dành cho các bạn mới bắt đầu. Chưa có kiến thức nền về Website và Lập trình
-                                    căn bản.</p>
-                            </div>
-                            <div class="pb-2">
-                                <span class="font-bold">3.9 triêu/tháng</span>
-                                <p class="mb-0">12 buổi 1 tháng(1 buổi 120p)</p>
-                            </div>
-                            <button class="bg-orange-500 
-                      text-white font-bold py-2 px-4 border 
+                <?php foreach ($new as $nw) { ?>
+                    <div class="col-12 col-md-3 cursor-pointer my-3 my-md-1">
+                        <div class="border hover:shadow-xl rounded-md">
+                            <img class="w-100" height="300px" src="<?php echo '../' . $nw->image ?>" alt="">
+                            <div class="w-100 px-4 py-3 text-sm lg:text-xl truncate" >
+                                <div class="py-3">
+                                    <a class="text-orange-500 font-bold " href="#"><?php echo $nw->name ?></a>
+                                    <p><?php echo $nw->description ?></p>
+                                </div>
+                                <div class="pb-2">
+                                    <span class="font-bold"><?php echo $nw->price . ' $' ?></span>
+                                    <p class="mb-0"><?php echo $nw->time . ' hours' ?></p>
+                                </div>
+                                <button class="bg-orange-500
+                      text-white font-bold py-2 px-4 border
                       rounded">
-                                <a class="hover:text-white" href="detail-course.php">Chi tiết</a>
-                            </button>
+                                    <a class="hover:text-white" href="detail-course.php?id=<?php echo $nw->id ?>">Chi tiết</a>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3 cursor-pointer my-3 my-md-0">
-                    <div class="border hover:shadow-xl rounded-md">
-                        <img class="w-100" height="300px" src="../img/khoa-hoc-wp-2-350x223.jpg" alt="">
-                        <div class="px-4 py-3 text-sm lg:text-xl">
-                            <div class="py-3">
-                                <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
-                                <p>Lớp học dành cho các bạn mới bắt đầu. Chưa có kiến thức nền về Website và Lập trình
-                                    căn bản.</p>
-                            </div>
-                            <div class="pb-2">
-                                <span class="font-bold">3.9 triêu/tháng</span>
-                                <p class="mb-0">12 buổi 1 tháng(1 buổi 120p)</p>
-                            </div>
-                            <button class="bg-orange-500 
-                      text-white font-bold py-2 px-4 border 
-                      rounded">
-                                <a class="hover:text-white" href="detail-course.php">Chi tiết</a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 cursor-pointer my-3 my-md-0">
-                    <div class="border hover:shadow-xl rounded-md">
-                        <img class="w-100" height="300px" src="../img/khoa-hoc-wp-2-350x223.jpg" alt="">
-                        <div class="px-4 py-3 text-sm lg:text-xl">
-                            <div class="py-3">
-                                <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
-                                <p>Lớp học dành cho các bạn mới bắt đầu. Chưa có kiến thức nền về Website và Lập trình
-                                    căn bản.</p>
-                            </div>
-                            <div class="pb-2">
-                                <span class="font-bold">3.9 triêu/tháng</span>
-                                <p class="mb-0">12 buổi 1 tháng(1 buổi 120p)</p>
-                            </div>
-                            <button class="bg-orange-500 
-                      text-white font-bold py-2 px-4 border 
-                      rounded">
-                                <a class="hover:text-white" href="detail-course.php">Chi tiết</a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 cursor-pointer">
-                    <div class="border hover:shadow-xl rounded-md">
-                        <img class="w-100" height="300px" src="../img/khoa-hoc-wp-3-350x223.jpg" alt="">
-                        <div class="px-4 py-3 text-sm lg:text-xl">
-                            <div class="py-3">
-                                <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
-                                <p>Lớp học dành cho các bạn mới bắt đầu. Chưa có kiến thức nền về Website và Lập trình
-                                    căn bản.</p>
-                            </div>
-                            <div class="pb-2">
-                                <span class="font-bold">3.9 triêu/tháng</span>
-                                <p class="mb-0">12 buổi 1 tháng(1 buổi 120p)</p>
-                            </div>
-                            <button class="bg-orange-500 
-                      text-white font-bold py-2 px-4 border 
-                      rounded">
-                                <a class="hover:text-white" href="detail-course.php">Chi tiết</a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -190,90 +140,30 @@
         <h3 class="font-bold text-sm md:text-2xl mb-2">Khoá học phổ biến nhất ! <span style="font-weight: 200  ;"
                 class="float-end text-sm md:text-xl"><a href="#">xem thêm -></a></span></h3>
         <div class="row">
-            <div class="col-12 col-md-3 cursor-pointer">
-                <div class="border hover:shadow-xl rounded-md">
-                    <img class="w-100" height="300px" src="../img/khoa-hoc-wp-1-350x223.jpg" alt="">
-                    <div class="px-4 py-3 text-sm lg:text-xl">
-                        <div class="py-3">
-                            <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
-                            <p>Lớp học dành cho các bạn mới bắt đầu. Chưa có kiến thức nền về Website và Lập trình căn
-                                bản.</p>
-                        </div>
-                        <div class="pb-2">
-                            <span class="font-bold">3.9 triêu/tháng</span>
-                            <p class="mb-0">12 buổi 1 tháng(1 buổi 120p)</p>
-                        </div>
-                        <button class="bg-orange-500 
-                      text-white font-bold py-2 px-4 border 
+            <?php foreach ($popular as $po) { ?>
+                <div class="col-12 col-md-3 cursor-pointer my-3 my-md-1">
+                    <div class="border hover:shadow-xl rounded-md">
+                        <img class="w-100" height="300px" src="<?php echo '../' . $po->image ?>" alt="">
+                        <div class="w-100 px-4 py-3 text-sm lg:text-xl truncate" >
+                            <div class="py-3">
+                                <a class="text-orange-500 font-bold " href="#"><?php echo $po->name ?></a>
+                                <p><?php echo $po->description ?></p>
+                            </div>
+                            <div class="pb-2">
+                                <span class="font-bold"><?php echo $po->price . ' $' ?></span>
+                                <p class="mb-0"><?php echo $po->time . ' hours' ?></p>
+                            </div>
+                            <button class="bg-orange-500
+                      text-white font-bold py-2 px-4 border
                       rounded">
-                            <a class="hover:text-white" href="detail-course.php">Chi tiết</a>
-                        </button>
+                                <a class="hover:text-white" href="detail-course.php?id=<?php echo $po->id ?>">Chi tiết</a>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-3 cursor-pointer my-3 my-md-0">
-                <div class="border hover:shadow-xl rounded-md">
-                    <img class="w-100" height="300px" src="../img/khoa-hoc-wp-2-350x223.jpg" alt="">
-                    <div class="px-4 py-3 text-sm lg:text-xl">
-                        <div class="py-3">
-                            <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
-                            <p>Lớp học dành cho các bạn mới bắt đầu. Chưa có kiến thức nền về Website và Lập trình căn
-                                bản.</p>
-                        </div>
-                        <div class="pb-2">
-                            <span class="font-bold">3.9 triêu/tháng</span>
-                            <p class="mb-0">12 buổi 1 tháng(1 buổi 120p)</p>
-                        </div>
-                        <button class="bg-orange-500 
-                      text-white font-bold py-2 px-4 border 
-                      rounded">
-                            <a class="hover:text-white" href="detail-course.php">Chi tiết</a>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-3 cursor-pointer">
-                <div class="border hover:shadow-xl rounded-md">
-                    <img class="w-100" height="300px" src="../img/khoa-hoc-wp-3-350x223.jpg" alt="">
-                    <div class="px-4 py-3 text-sm lg:text-xl">
-                        <div class="py-3">
-                            <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
-                            <p>Lớp học dành cho các bạn mới bắt đầu. Chưa có kiến thức nền về Website và Lập trình căn
-                                bản.</p>
-                        </div>
-                        <div class="pb-2">
-                            <span class="font-bold">3.9 triêu/tháng</span>
-                            <p class="mb-0">12 buổi 1 tháng(1 buổi 120p)</p>
-                        </div>
-                        <button class="bg-orange-500 
-                      text-white font-bold py-2 px-4 border 
-                      rounded">
-                            <a class="hover:text-white" href="detail-course.php">Chi tiết</a>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-3 cursor-pointer">
-                <div class="border hover:shadow-xl rounded-md">
-                    <img class="w-100" height="300px" src="../img/khoa-hoc-wp-3-350x223.jpg" alt="">
-                    <div class="px-4 py-3 text-sm lg:text-xl">
-                        <div class="py-3">
-                            <a class="text-orange-500 font-bold " href="">Lớp học 1 kèm 1</a>
-                            <p>Lớp học dành cho các bạn mới bắt đầu. Chưa có kiến thức nền về Website và Lập trình căn
-                                bản.</p>
-                        </div>
-                        <div class="pb-2">
-                            <span class="font-bold">3.9 triêu/tháng</span>
-                            <p class="mb-0">12 buổi 1 tháng(1 buổi 120p)</p>
-                        </div>
-                        <button class="bg-orange-500 
-                      text-white font-bold py-2 px-4 border 
-                      rounded">
-                            <a class="hover:text-white" href="detail-course.php">Chi tiết</a>
-                        </button>
-                    </div>
-                </div>
-            </div>
+                <?php
+            }
+            ?>
         </div>
     </div>
     </div>
@@ -381,46 +271,32 @@
         <div class="row">
             <div class="col-12 col-md-7">
                 <div class="row pb-4">
+                    <?php
+                    foreach ($list as $value){
+
+                    ?>
                     <div class=" col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
-                        <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
+                        <a href="# "><img src="<?php echo '../'.$value->avatar ?>" alt=" " width="100% "></a>
+                        <h3 class="text-center font-bold py-2"><?php echo $value->name ?></h3>
 
                     </div>
-                    <div class="col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
-                        <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
-                    </div>
-                    <div class="col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
-                        <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
-                    </div>
+                    <?php
+                    }
+                    ?>
+
                 </div>
-                <div class="row ">
-                    <div class="col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
-                        <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
-                    </div>
-                    <div class="col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
-                        <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
-                    </div>
-                    <div class="col-12 col-md-4 pb-4 hover:drop-shadow-2xl ">
-                        <a href="# "><img src="../img/teacher.jpg " alt=" " width="100% "></a>
-                        <h3 class="text-center font-bold py-2">Hoàng Trọng Hiếu</h3>
-                    </div>
-                </div>
+
             </div>
             <div class="col-12 col-md-5 "
                 style="background-image: url(https://fsoft-academy.edu.vn/wp-content/uploads/2021/04/bg.svg) ">
                 <div class="pt-6 pl-6 text-slate-100 ">
                     <p class="font-bold pb-2 " style="font-size:1rem; "><strong>1/26</strong></p>
                     <p class="font-bold pb-2 " style="font-size:0.8rem; "><strong>GIẢNG VIÊN NỘI BỘ</strong></p>
-                    <p class="font-bold pb-2 " style="font-size:1.3rem; "><strong>Hoàng Trọng Hiếu</strong></p>
+                    <p class="font-bold pb-2 " style="font-size:1.3rem; "><strong><?php echo $list[0]->name ?></strong></p>
                     <ul>
                         <li class="pl-10 font-semibold "><strong>- Vị trí công tác hiện tại:</strong> Giảng viên bộ môn
                             .NET</li>
-                        <li class="pl-10 font-semibold "><strong>- Trình độ học vấn:</strong> Thạc sĩ kỹ thuật phần mềm
-                            FPT</li>
+                        <li class="pl-10 font-semibold "><strong>- Trình độ học vấn:</strong> <?php echo $list[0]->degree ?></li>
                         <li class="pl-10 font-semibold "><strong>- Quá trình công tác</strong></li>
                         <ul>
                             <li class="pl-20 ">- 2017 - 2020: FPT Telecom</li>
