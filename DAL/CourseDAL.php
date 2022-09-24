@@ -79,6 +79,18 @@ class CourseDAL extends DB implements ICRUD
         $rs->setFetchMode(PDO::FETCH_OBJ);
         return $rs;
     }
+    public function countCourse()
+    {
+        $sql = "SELECT COUNT(*) FROM $this->tableName";
+        $rs = $this->pdo->query($sql)->fetchColumn();
+        return $rs;
+    }
+    public function getListByPage($id,$so)
+    {
+        $sql = "SELECT * FROM $this->tableName LIMIT $id,$so";
+        $rs = $this->pdo->query($sql);
+        return $rs->fetchAll(PDO::FETCH_OBJ);
+    }
 }
 
 ?>

@@ -11,7 +11,7 @@ $list = $dal->getList();
     if (isset($_SESSION['fail'])){
         echo
             '<div class="bg-blue-500 bg-red-200 text-red-800  py-2 px-4 rounded">' . $_SESSION['fail'] . '</div>';
-        $_SESSION['fail'] = '';
+        unset($_SESSION['fail']);
     } ?>
 
     <div class="row">

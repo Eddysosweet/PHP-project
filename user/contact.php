@@ -1,7 +1,7 @@
-<?php include_once 'commons/head.php';?>
+<?php include_once '../commons/head.php';?>
 
 <body>
-<?php include_once 'commons/body-menu.php';?>
+<?php include_once '../commons/body-menu.php';?>
     <div id="contact">
         <div class="container" style="margin-top: 7rem !important;">
             <div class="flex items-center my-4 before:flex-1 before:border-t
@@ -73,7 +73,7 @@
             </div>
         </div>
     </div>
-    <?php include_once 'commons/body-footer.php';?>
+    <?php include_once '../commons/body-footer.php';?>
     <style>
         
         .btn:focus,

@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,13 +28,13 @@
 <section id="register" class="flex justify-center items-center p-6">
     <div class="login_body container md:w-2/4 xl:w-4/12 py-10">
         <h1 class="text-center text-3xl pb-7">ĐĂNG NHẬP</h1>
-        <form class="sm:px-9 input_form" action="" method="post">
+        <form class="sm:px-9 input_form" action="handle-login.php" method="post">
             <div class="mb-6">
                 <input
                         name="username"
                         type="text"
                         class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        placeholder="Email/Số điện thoại"
+                        placeholder="Email"
                 />
             </div>
             <div class="mb-6">
@@ -43,6 +45,10 @@
                         placeholder="Mật khẩu"
                 />
             </div>
+            <div class="text-red-500 mb-2 text-sm md:text-lg"><?php if(isset($_SESSION['fail'])){
+                echo $_SESSION['fail'];
+                unset($_SESSION['fail']);
+                } ?></div>
 
             <div class="flex justify-between items-center mb-6">
                 <div class="form-group form-check">

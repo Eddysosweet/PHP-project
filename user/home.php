@@ -1,10 +1,10 @@
-<?php include_once 'commons/head.php';?>
+<?php include_once '../commons/head.php';?>
 <body>
-   <?php include_once 'commons/body-menu.php';?>
+   <?php include_once '../commons/body-menu.php';?>
 
     <!-- banner -->
     <div>
-        <div id="banner" class="bg-[url('img/banner.jpg')] mt-16 w-100 
+        <div id="banner" class="bg-[url('../img/banner.jpg')] mt-16 w-100
         justify-content-center d-flex align-items-center" style="height: 550px;">
             <div class="w-10/12 md:w-6/12 text-white ">
                 <p class="mb-0 text-3xl  md:text-5xl md:text-center font-bold">CHƯƠNG TRÌNH ĐÀO TẠO IT TRỰC TUYẾN</p>
@@ -443,7 +443,7 @@
         </div>
     </div>
 
-    <?php include_once 'commons/body-footer.php';?>
+    <?php include_once '../commons/body-footer.php';?>
     <style>
         .container {
             width: 80%;

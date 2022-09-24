@@ -15,5 +15,5 @@
 
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Trang chủ</title>
+    <title>Document</title>
 </head>

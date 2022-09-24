@@ -1,6 +1,6 @@
-<?php include_once 'commons/head.php';?>
+<?php include_once '../commons/head.php';?>
 <body>
-<?php include_once 'commons/body-menu.php';?>
+<?php include_once '../commons/body-menu.php';?>
     <!-- contact -->
     <div class="container  mt-24">
         <div class="row">
@@ -105,7 +105,7 @@
             </div>
         </div>
     </div>
-<?php include_once 'commons/body-footer.phpphp';?>
+<?php include_once '../commons/body-footer.php';?>
     <style>
         .logo-image {
         width: 100px;

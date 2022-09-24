@@ -63,6 +63,14 @@ class UserDAL extends DB implements ICRUD{
             return false;
         }
     }//U
+    public function check($user,$password){
+        $prp = $this->pdo->prepare("SELECT count(*) FROM $this->tableName WHERE email=:email AND password=:password");
+        $prp->bindParam(':email',$user);
+        $prp->bindParam(':password',$password);
+        $prp->execute();
+        $rs = $prp->fetchColumn();
+        return $rs;
+    }
 }
 
 ?>

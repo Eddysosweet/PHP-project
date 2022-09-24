@@ -26,7 +26,7 @@ if (isset($_GET['action'])) {
                         </a>
                     </li>
 
-                    <li class="p-3 border-bottom bg-blue-400 text-white">
+                    <li class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
                         <a class="text-2xl hover:text-white font-bold" href="./../lecturer/list.php">
                             <i class="text-indigo-800 me-2 fa-solid fa-chalkboard-user"></i>Teachers
                         </a>
@@ -38,7 +38,7 @@ if (isset($_GET['action'])) {
                         </a>
                     </li>
 
-                    <li class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
+                    <li class="p-3 border-bottom bg-blue-400 text-white">
                         <a class="text-2xl hover:text-white font-bold" href="">
                             <i class="text-yellow-500 me-2 fa-solid fa-user-gear"></i>Users
                         </a>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <menu class="bg m-0 py-3 fixed-top px-3">
     <div class="">
         <div class="row">
@@ -37,6 +40,20 @@
                         <a class="nav-link px-2" href="contact.php">Liên
                             hệ</a>
                     </li>
+                    <?php
+                    if(isset($_SESSION['user'])){ ?>
+                        <li class="nav-item dropdown list-inline-item">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle"></i><?php echo $_SESSION['user']['email'] ?>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="handleLogout.php">Đăng xuất</a></li>
+                                <li><a class="dropdown-item" href="#">Quản lí tài khoản</a></li>
+                            </ul>
+                        </li>
+                    <?php
+                    }else{
+                    ?>
                     <li class="list-inline-item me-4">
                         <a class="nav-link px-1" href="login.php">Đăng
                             nhập</a>
@@ -45,6 +62,9 @@
                         <a class="nav-link px-1" href="register.php">Đăng
                             ký</a>
                     </li>
+                    <?php
+                    }
+                    ?>
                     <li class="list-inline-item me-4">
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
@@ -74,18 +94,37 @@
         </div>
         <div class="offcanvas-body p-0">
             <ul class="p-0">
-                <li class="list-group-item list-group-item-action">
-                    <a class="nav-link text-dark" href="home.php">Trang chủ</a>
-                </li>
-                <li class="list-group-item list-group-item-action">
-                    <a class="nav-link text-dark" href="#">Liên hệ</a>
-                </li>
+                <?php
+                if(isset($_SESSION['user'])){ ?>
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <i class="bi bi-person-circle"></i><?php echo $_SESSION['user']['email'] ?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="handleLogout.php">Đăng xuất</a></li>
+                            <li><a class="dropdown-item" href="#">Quản lí tài khoản</a></li>
+                        </ul>
+                    </li>
+                    <?php
+                }else{
+                ?>
                 <li class="list-group-item list-group-item-action">
                     <a class="nav-link text-dark" href="login.php">Đăng nhập</a>
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <a class="nav-link text-dark" href="register.php">Đăng ký</a>
                 </li>
+                <?php
+                }
+                ?>
+                <li class="list-group-item list-group-item-action">
+                    <a class="nav-link text-dark" href="home.php">Trang chủ</a>
+                </li>
+                <li class="list-group-item list-group-item-action">
+                    <a class="nav-link text-dark" href="#">Liên hệ</a>
+                </li>
+
 
                 <li class="list-group-item list-group-item-action">
                     <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
