@@ -1,5 +1,5 @@
 <?php
-include_once './../../admin/home/adHeader.php';
+include_once '../commons/admin-header.php';
 include_once './../../DAL/CourseDAL.php';
 $dal = new CourseDAL();
 if (isset($_GET['action'])) {
@@ -110,5 +110,5 @@ $list = $dal->getList();
         </div>
     </div>
 <?php
-include "./../../admin/home/adFooter.php";
+include "../commons/admin-footer.php";
 ?>

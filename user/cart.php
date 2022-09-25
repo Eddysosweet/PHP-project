@@ -1,5 +1,11 @@
 <?php
-session_start();
+include_once '../DAL/CourseDAL.php';
+$dal = new  CourseDAL();
+?>
+<?php include_once '../commons/head.php'; ?>
+<body>
+<?php
+include_once '../commons/body-menu.php';
 if (isset($_GET['action'])) {
     $id = $_GET['id'];
     if (is_numeric($id) && $_GET['action'] == 'delete') {
@@ -7,11 +13,7 @@ if (isset($_GET['action'])) {
         header("location:cart.php");
     }
 }
-
 ?>
-<?php include_once '../commons/head.php'; ?>
-<body>
-<?php include_once '../commons/body-menu.php'; ?>
 
 <div class="content border-bottom py-3">
     <div class="container py-2 ">
@@ -37,23 +39,26 @@ if (isset($_GET['action'])) {
                 <?php
                 $i = 1;
                 $total =0;
+
                 foreach ($_SESSION['cart'] as $key => $value) {
+                    $course = $dal->getOne($value);
+
                     ?>
                     <tr>
-                        <td><?php echo $key ?></td>
-                        <td><?php echo $value['name']?></td>
-                        <td><img class="m-auto" style="width: 50px;" src="<?php echo '../' . $value['image'] ?>"
+                        <td><?php echo $i ?></td>
+                        <td><?php echo $course->name?></td>
+                        <td><img class="m-auto" style="width: 50px;" src="<?php echo '../' . $course->image ?>"
                                  alt="#"/></td>
-                        <td><?php echo $value['price'].'$'?></td>
-                        <td><?php echo $value['description'] ?></td>
-                        <td><?php echo $value['time'].' hours' ?></td>
+                        <td><?php echo  $course->price.'$'?></td>
+                        <td><?php echo $course->description ?></td>
+                        <td><?php echo $course->time.' hours' ?></td>
                         <td class="pl-0"><a onclick="return confirm('Are you sure you want to delete ?')"
                                             class="btn btn-danger"
                                             href="?action=delete&id=<?php echo $key; ?>">Delete</a></td>
                     </tr>
                     <?php
                     $i++;
-                    $total += $value['price'];
+                    $total +=$course->price;
                 }
                 ?>
                     <tr>

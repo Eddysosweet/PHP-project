@@ -1,18 +1,24 @@
 <?php
+session_start();
 include_once './../../DAL/LecturerDAL.php';
 $dal = new TeacherDAL();
-if (isset($_FILES['avatar']) && $_FILES['avatar']['name'] !== null) {
-    $dir = 'img/uploads/lecturer/' . time() . $_FILES['avatar']['name'];
-    move_uploaded_file($_FILES['avatar']['tmp_name'], './../../' . $dir);
-    if (isset($_POST['name']) && $_POST['name']) {
+$id = $_GET['id'];
+$teacher = $dal->getOne($id);
+if (isset($_POST['name']) && $_POST['name']) {
+    if (isset($_FILES['avatar']) && $_FILES['avatar']['name']) {
+        unlink('./../../' . $teacher->avatar);
+        $dir = 'img/uploads/lecturer/' . time() . $_FILES['avatar']['name'];
+        move_uploaded_file($_FILES['avatar']['tmp_name'], './../../' . $dir);
         $_POST['image'] = $dir;
-        $dal->addOne($_POST);
-        header("location:list.php");
+    } else {
+        $_POST['image'] = $teacher->avatar;
     }
+    $dal->updateOne($id, $_POST);
+    header("location:list.php");
 }
 ?>
 <?php
-include_once './../../admin/home/adHeader.php';
+include_once '../commons/admin-header.php';
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -61,18 +67,22 @@ include_once './../../admin/home/adHeader.php';
                         <form method="post" class="row g-3" enctype="multipart/form-data">
                             <div class="my-3">
                                 <h4>Full Name </h4>
-                                <input type="text" name="name" class="form-control" placeholder="fullname">
+                                <input type="text" name="name" class="form-control" placeholder="fullname"
+                                       value="<?php echo $teacher->name ?>">
                             </div>
                             <div class="my-3">
                                 <h4>Avatar</h4>
-                                <input type="file" name="avatar" class="form-control">
+                                <img style="width: 90px" src="<?php echo './../../' . $teacher->avatar; ?>" alt="#"/>
+                                <label class="btn btn-warning" for="avatar">Change Avatar</label>
+                                <input type="file" name="avatar" class="form-control" id="avatar" hidden>
                             </div>
                             <div class="my-3">
                                 <h4>Degree </h4>
-                                <input type="text" name="degree" class="form-control" placeholder="degree">
+                                <input type="text" name="degree" class="form-control" placeholder="degree"
+                                       value="<?php echo $teacher->degree ?>">
                             </div>
                             <div class="my-3">
-                                <input type="submit" value="add" class="btn px-5 text-white bg-success">
+                                <input type="submit" value="edit" class="btn px-5 text-white bg-success">
                             </div>
                         </form>
                     </div>
@@ -83,7 +93,7 @@ include_once './../../admin/home/adHeader.php';
     </div>
 </div>
 <?php
-include "./../../admin/home/adFooter.php";
+include "../commons/admin-footer.php";
 ?>
 
 

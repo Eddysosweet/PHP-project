@@ -14,7 +14,7 @@ if (isset($_FILES['image']) && $_FILES['image']['name'] !== null) {
 }
 ?>
 <?php
-include_once './../../admin/home/adHeader.php';
+include_once '../commons/admin-header.php';
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -108,7 +108,7 @@ include_once './../../admin/home/adHeader.php';
     </div>
 </div>
 <?php
-include "./../../admin/home/adFooter.php";
+include "../commons/admin-footer.php";
 ?>
 
 
