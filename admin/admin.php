@@ -39,8 +39,8 @@ include "commons/admin-header.php"; ?>
                 </ul>
             </div>
         </div>
-        <div class="col-12 col-md-9 col-lg-10 p-0">
-
+        <div class="text-center md:text-2xl col-12 col-md-9 col-lg-10 p-0 h-80  m-auto">
+            Chào mừng bạn đến với trang quản trị !
         </div>
     </div>
 </div>

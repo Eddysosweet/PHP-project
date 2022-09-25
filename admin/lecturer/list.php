@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once '../commons/admin-header.php';
 include_once './../../DAL/LecturerDAL.php';
 $dal = new TeacherDAL();

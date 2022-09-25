@@ -145,7 +145,7 @@ session_start();
             </div>
             <div class="py-3">
                 Bạn là quản trị viên?
-                <a href="./../admin/admin.php" class="px-5 text-blue-600 hover:text-blue-300 focus:text-blue-700
+                <a href="../admin/login-admin.php" class="px-5 text-blue-600 hover:text-blue-300 focus:text-blue-700
                 active:text-blue-800 duration-200 transition ease-in-out">Đăng nhập</a>
             </div>
         </form>
