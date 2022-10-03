@@ -1,4 +1,4 @@
-<footer class="text-center text-lg-start bg-light text-dark">
+<footer class="text-center text-lg-start bg-light text-dark ">
     <!-- Section: Links  -->
     <section>
         <div class="container text-center text-md-start mt-5 pt-1">
@@ -119,7 +119,7 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center" style="background-color: #3b82f6;">
+    <div class="text-center p-4" style="background-color: #3b82f6;">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-center p-3 ">
             <!-- Right -->

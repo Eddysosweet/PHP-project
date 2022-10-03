@@ -18,9 +18,6 @@ $course = $cou->getOne($id);
         <div class="col-12 col-md-9">
             <h1 class="text-4xl fw-bold text-gray-500"><?php echo $course->name ?></h1>
             <div class="d-flex align-items-center text-lg fw-bold py-4 border-bottom">
-                <img width="100px"
-                     src="https://fsoft-academy.edu.vn/wp-content/uploads/2022/08/depositphotos_112592806-stock-illustration-female-call-centre-operator-with-01-300x300.jpg"
-                     alt="">
                 <div>
                     <p class="mb-0"><a href="#">Email:unica@gmail.com.vn</a></p>
                     <p class="mb-0"><a href="#">1900 636 648</a></p>
@@ -102,10 +99,10 @@ $course = $cou->getOne($id);
         </div>
         <div class="col-12 col-md-3">
             <img class="w-100"
-                 src="https://fsoft-academy.edu.vn/wp-content/uploads/2022/08/MicrosoftTeams-image-19-360x190.png"
+                 src="../<?php echo $course->image ?>"
                  alt="">
             <div class="bg-gray-100  px-3 text-lg">
-                <p class="text-2xl fw-bold text-green-600 mb-0 pt-4 pb-3"><?php echo $course->price . ' $' ?></p>
+                <p class="text-2xl fw-bold text-green-600 mb-0 pt-4 pb-3"><?php echo number_format($course->price) . ' $' ?></p>
                 <div class="d-flex align-items-center text-xl py-2">
                     <p class="mb-0 pr-4"><i class="fa-solid fa-clock text-green-600"></i></p>
                     <div>

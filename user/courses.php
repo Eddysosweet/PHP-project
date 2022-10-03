@@ -22,22 +22,22 @@ $rs = $course->getListByPage($vitri,12);
         <h3 class="font-bold text-sm md:text-2xl mb-2">Danh sách khoá học</h3>
         <div class="row my-3">
             <?php foreach ($rs as $list) { ?>
-                <div class="col-12 col-md-3 cursor-pointer my-3 my-md-1">
+                <div class="col-12 col-md-3 cursor-pointer my-1 my-md-3">
                     <div class="border hover:shadow-xl rounded-md">
-                        <img class="w-100" height="300px" src="<?php echo '../' . $list->image ?>" alt="">
+                        <img class="w-100" style="height: 200px;" src="<?php echo '../' . $list->image ?>" alt="">
                         <div class="w-100 px-4 py-3 text-sm lg:text-xl truncate" >
                             <div class="py-3">
                                 <a class="text-orange-500 font-bold " href="#"><?php echo $list->name ?></a>
                                 <p><?php echo $list->description ?></p>
                             </div>
                             <div class="pb-2">
-                                <span class="font-bold"><?php echo $list->price . ' $' ?></span>
-                                <p class="mb-0"><?php echo $list->time . ' hours' ?></p>
+                                <span class="font-bold"><?php echo number_format($list->price) . ' VND' ?></span>
+                                <p class="mb-0"><?php echo $list->time . ' giờ' ?></p>
                             </div>
                             <button class="bg-orange-500 
                       text-white font-bold py-2 px-4 border 
                       rounded">
-                                <a class="hover:text-white" href="detail-course.php?id=<?php echo $list->id ?>">Chi tiết</a>
+                                <a class="hover:text-white" href="detail-course.php?id=<?php echo $list->       id ?>">Chi tiết</a>
                             </button>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ $rs = $course->getListByPage($vitri,12);
                     $id = 1;
                 }
                 echo ($id == $i) ? 'active' : '';
-                ?>"><a class="page-link" href="home.php?id=<?php echo $i ?>"><?php echo $i ?></a></li>
+                ?>"><a class="page-link" href="?id=<?php echo $i ?>"><?php echo $i ?></a></li>
 
                 <?php
                 $i++;

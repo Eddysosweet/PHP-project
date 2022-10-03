@@ -11,7 +11,7 @@ include "commons/admin-header.php"; ?>
                             name="username"
                             type="text"
                             class="form-control m-auto px-2 py-2 w-50 text-lg  text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600"
-                            placeholder="username"
+                            placeholder="Tên đăng nhập"
                     />
                 </div>
                 <div class="mb-6">
@@ -21,7 +21,7 @@ include "commons/admin-header.php"; ?>
                             name="password"
                             type="password"
                             class="form-control m-auto px-2 py-2 w-50 text-lg  text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600"
-                            placeholder="password"
+                            placeholder="mật khẩu"
                     />
                 </div>
                 <div class="text-red-500 mb-2 text-sm md:text-lg"><?php if(isset($_SESSION['fail'])){

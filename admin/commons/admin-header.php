@@ -40,16 +40,15 @@ session_start();
                     <?php echo $_SESSION['admin']['username'] ?>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="handle-logout.php"><i
-                                    class=" me-2 text-fuchsia-900 fa-solid fa-right-from-bracket"></i>Logout</a></li>
+                    <li><a class="dropdown-item" href="../handle-logout.php"><i
+                                    class=" me-2 text-fuchsia-900 fa-solid fa-right-from-bracket"></i>Đăng xuất</a></li>
                     </a></li>
-                    <li><a class="dropdown-item" href="#">Change password</a></li>
                 </ul>
             </li>
             <?php } else { ?>
                 <li class="text-white text-lg font-bold " id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    Log In
+                    Đăng nhập
                 </li>
                 <?php
             }
@@ -59,4 +58,5 @@ session_start();
         </ul>
         </div>
         </div>
+    </li>
 </nav>

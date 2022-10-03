@@ -17,6 +17,13 @@ class UserDAL extends DB implements ICRUD
         return $rs->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function getOneByEmail($email)
+    {
+        $sql = "SELECT * FROM $this->tableName WHERE email = '$email'";
+        $rs = $this->pdo->query($sql);
+        $rs->setFetchMode(PDO::FETCH_OBJ);
+        return $rs->fetch();
+    }
     public function getOne($id)
     {
         $sql = "SELECT * FROM $this->tableName WHERE id=$id";
@@ -39,7 +46,7 @@ class UserDAL extends DB implements ICRUD
         $prp = $this->pdo->prepare("INSERT INTO $this->tableName(name,email,password,phone) VALUES(:name,:email,:password,:phone)");
         $prp->bindParam(':name', $data['name']);
         $prp->bindParam(':email', $data['email']);
-        $prp->bindParam(':password', $password);
+        $prp->bindParam(':password', $data['password']);
         $prp->bindParam(':phone', $data['phone']);
         try {
             $prp->execute();
@@ -88,6 +95,7 @@ class UserDAL extends DB implements ICRUD
         $rs = $prp->fetchColumn();
         return $rs;
     }
+
 }
 
 ?>
