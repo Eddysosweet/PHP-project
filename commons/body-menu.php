@@ -22,24 +22,25 @@ session_start();
                         <a class="nav-link px-0" href="../index.php">Trang
                             chủ</a>
                     </li>
-                    <li class="nav-item dropdown list-inline-item">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Khoá học
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="courses.php">Danh
-                                    sách tất cả khoá học</a></li>
-                            <li><a class="dropdown-item" href="#">Khoá
-                                    học của tôi</a></li>
-                        </ul>
-                    </li>
-                    <li class="list-inline-item me-4">
-                        <a class="nav-link px-2" href="contact.php">Liên
-                            hệ</a>
-                    </li>
+
                     <?php
                     if (isset($_SESSION['user'])) { ?>
+                        <li class="nav-item dropdown list-inline-item">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Khoá học
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="courses.php">Danh
+                                        sách tất cả khoá học</a></li>
+                                <li><a class="dropdown-item" href="mycourses.php">Khoá
+                                        học của tôi</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-inline-item me-4">
+                            <a class="nav-link px-2" href="contact.php">Liên
+                                hệ</a>
+                        </li>
                         <li class="nav-item dropdown list-inline-item">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">
@@ -57,6 +58,22 @@ session_start();
                         <?php
                     } else {
                         ?>
+                        <li class="nav-item dropdown list-inline-item">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Khoá học
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="courses.php">Danh
+                                        sách tất cả khoá học</a></li>
+                                <li><a class="dropdown-item" href="#">Khoá
+                                        học của tôi</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-inline-item me-4">
+                            <a class="nav-link px-2" href="contact.php">Liên
+                                hệ</a>
+                        </li>
                         <li class="list-inline-item me-4">
                             <a class="nav-link px-1" href="login.php">Đăng
                                 nhập</a>
@@ -105,6 +122,24 @@ session_start();
                             <li><a class="dropdown-item" href="account/account.php">Quản lí tài khoản</a></li>
                         </ul>
                     </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link text-dark" href="../index.php">Trang chủ</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link text-dark" href="#">Liên hệ</a>
+                    </li>
+
+
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Khoá học
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="courses.php">Danh sách tất cả khoá học</a></li>
+                            <li><a class="dropdown-item" href="mycourses.php">Khoá học của tôi</a></li>
+                        </ul>
+                    </li>
                     <?php
                 } else {
                     ?>
@@ -114,27 +149,28 @@ session_start();
                     <li class="list-group-item list-group-item-action">
                         <a class="nav-link text-dark" href="register.php">Đăng ký</a>
                     </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link text-dark" href="../index.php">Trang chủ</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link text-dark" href="#">Liên hệ</a>
+                    </li>
+
+
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Khoá học
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="courses.php">Danh sách tất cả khoá học</a></li>
+                            <li><a class="dropdown-item" href="#">Khoá học của tôi</a></li>
+                        </ul>
+                    </li>
                     <?php
                 }
                 ?>
-                <li class="list-group-item list-group-item-action">
-                    <a class="nav-link text-dark" href="../index.php">Trang chủ</a>
-                </li>
-                <li class="list-group-item list-group-item-action">
-                    <a class="nav-link text-dark" href="#">Liên hệ</a>
-                </li>
 
-
-                <li class="list-group-item list-group-item-action">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Khoá học
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="courses.php">Danh sách tất cả khoá học</a></li>
-                        <li><a class="dropdown-item" href="#">Khoá học của tôi</a></li>
-                    </ul>
-                </li>
 
 
                 <li class="list-group-item list-group-item-action">

@@ -34,25 +34,26 @@ session_start();
                         <a class="nav-link px-0" href="index.php">Trang
                             chủ</a>
                     </li>
-                    <li class="nav-item dropdown list-inline-item">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Khoá học
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="user/courses.php">Danh
-                                    sách tất cả khoá học</a></li>
-                            <li><a class="dropdown-item" href="#">Khoá
-                                    học của tôi</a></li>
-                        </ul>
-                    </li>
 
-                    <li class="list-inline-item me-4">
-                        <a class="nav-link px-2" href="user/contact.php">Liên
-                            hệ</a>
-                    </li>
                     <?php
                     if (isset($_SESSION['user'])) { ?>
+                        <li class="nav-item dropdown list-inline-item">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Khoá học
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="user/courses.php">Danh
+                                        sách tất cả khoá học</a></li>
+                                <li><a class="dropdown-item" href="user/mycourses.php">Khoá
+                                        học của tôi</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="list-inline-item me-4">
+                            <a class="nav-link px-2" href="user/contact.php">Liên
+                                hệ</a>
+                        </li>
                         <li class="nav-item dropdown list-inline-item">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">
@@ -70,6 +71,23 @@ session_start();
                         <?php
                     } else {
                         ?>
+                        <li class="nav-item dropdown list-inline-item">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Khoá học
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="user/courses.php">Danh
+                                        sách tất cả khoá học</a></li>
+                                <li><a class="dropdown-item" href="#">Khoá
+                                        học của tôi</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="list-inline-item me-4">
+                            <a class="nav-link px-2" href="user/contact.php">Liên
+                                hệ</a>
+                        </li>
                         <li class="list-inline-item me-4">
                             <a class="nav-link px-1" href="user/login.php">Đăng
                                 nhập</a>
@@ -144,18 +162,36 @@ session_start();
                 <li class="list-group-item list-group-item-action">
                     <a class="nav-link text-dark" href="#">Liên hệ</a>
                 </li>
+                <?php
+                if (isset($_SESSION['user'])) { ?>
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Khoá học
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="user/courses.php">Danh sách tất cả khoá học</a></li>
+                            <li><a class="dropdown-item" href="user/mycourses.php">Khoá học của tôi</a></li>
+                        </ul>
+                    </li>
+                    <?php
+                } else {
+                    ?>
+                    <li class="list-group-item list-group-item-action">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Khoá học
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="user/courses.php">Danh sách tất cả khoá học</a></li>
+                            <li><a class="dropdown-item" href="#">Khoá học của tôi</a></li>
+                        </ul>
+                    </li>
+                    <?php
+                }
+                ?>
 
 
-                <li class="list-group-item list-group-item-action">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Khoá học
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="user/courses.php">Danh sách tất cả khoá học</a></li>
-                        <li><a class="dropdown-item" href="#">Khoá học của tôi</a></li>
-                    </ul>
-                </li>
 
 
                 <li class="list-group-item list-group-item-action">
@@ -278,7 +314,7 @@ session_start();
         </div>
         <div class="container py-2 border-bottom">
             <h3 class="font-bold text-sm md:text-2xl mb-2">Khoá học mới ! <span style="font-weight: 200  ;"
-                    class="float-end text-sm md:text-xl"><a href="#">xem thêm -></a></span></h3>
+                    class="float-end text-sm md:text-xl"><a href="user/courses.php">xem thêm -></a></span></h3>
             <div class="row">
                 <?php foreach ($new as $nw) { ?>
                     <div class="col-12 col-md-3 cursor-pointer my-1 my-md-3">
@@ -296,7 +332,7 @@ session_start();
                                 <button class="bg-orange-500
                       text-white font-bold py-2 px-4 border
                       rounded">
-                                    <a class="hover:text-white" href="detail-course.php?id=<?php echo $nw->id ?>">Chi tiết</a>
+                                    <a class="hover:text-white" href="">Chi tiết</a>
                                 </button>
                             </div>
                         </div>
@@ -310,7 +346,7 @@ session_start();
 
     <div class="container py-2  border-bottom">
         <h3 class="font-bold text-sm md:text-2xl mb-2">Khoá học phổ biến nhất ! <span style="font-weight: 200  ;"
-                class="float-end text-sm md:text-xl"><a href="#">xem thêm -></a></span></h3>
+                class="float-end text-sm md:text-xl"><a href="user/courses.phpgit">xem thêm -></a></span></h3>
         <div class="row">
             <?php foreach ($popular as $po) { ?>
                 <div class="col-12 col-md-3 cursor-pointer my-1 my-md-3">
@@ -328,7 +364,7 @@ session_start();
                             <button class="bg-orange-500
                       text-white font-bold py-2 px-4 border
                       rounded">
-                                <a class="hover:text-white" href="user/detail-course.php?id=<?php echo $po->id ?>">Chi tiết</a>
+                                <a class="hover:text-white" href="">Chi tiết</a>
                             </button>
                         </div>
                     </div>

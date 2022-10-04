@@ -16,12 +16,27 @@ $rs = $course->getListByPage($vitri,12);
 <?php include_once '../commons/head.php'; ?>
 <body>
 <?php include_once '../commons/body-menu.php'; ?>
+<?php
+include_once '../DAL/UserDAL.php';
+include_once '../DAL/OrderDetailDAL.php';
+$email = $_SESSION['user']['email'];
+$user = new  UserDAL();
+$user_id = $user->getOneByEmail($email)->id;
+$order_detail = new OrderDetailDAL();
+$mc= $order_detail->getListByUserId($user_id);
+$arr = array();
+foreach ($mc as $item){
+    $arr[] = $item->course_id;
+}
+?>
 
 <div class="content border-bottom py-3">
     <div class="container py-2 ">
         <h3 class="font-bold text-sm md:text-2xl mb-2">Danh sách khoá học</h3>
         <div class="row my-3">
-            <?php foreach ($rs as $list) { ?>
+            <?php foreach ($rs as $list) {
+                if(!in_array($list->id,$arr)){
+                ?>
                 <div class="col-12 col-md-3 cursor-pointer my-1 my-md-3">
                     <div class="border hover:shadow-xl rounded-md">
                         <img class="w-100" style="height: 200px;" src="<?php echo '../' . $list->image ?>" alt="">
@@ -34,15 +49,16 @@ $rs = $course->getListByPage($vitri,12);
                                 <span class="font-bold"><?php echo number_format($list->price) . ' VND' ?></span>
                                 <p class="mb-0"><?php echo $list->time . ' giờ' ?></p>
                             </div>
-                            <button class="bg-orange-500 
-                      text-white font-bold py-2 px-4 border 
+                            <button class="bg-orange-500
+                      text-white font-bold py-2 px-4 border
                       rounded">
-                                <a class="hover:text-white" href="detail-course.php?id=<?php echo $list->       id ?>">Chi tiết</a>
+                                <a class="hover:text-white" href="detail-course.php?id=<?php echo $list->id ?>">Chi tiết</a>
                             </button>
                         </div>
                     </div>
                 </div>
                 <?php
+                }
             }
             ?>
         </div>

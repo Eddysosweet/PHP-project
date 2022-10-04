@@ -8,7 +8,13 @@ class OrderDetailDAL extends DB
         parent::__construct();//chạy các lệnh trong constructor của cha
         $this->setTableName("order_detail");
     }
-
+    public function getListByUserId($user_id)
+    {
+        $sql = "SELECT * FROM order_detail INNER JOIN orders ON order_detail.order_id = orders.id WHERE orders.user_id = $user_id AND orders.status=1";
+        $rs = $this->pdo->query($sql);
+        $rs->setFetchMode(PDO::FETCH_OBJ);
+        return $rs->fetchAll();
+    }
     public function getListByOrderId($id)
     {
         $sql = "SELECT * FROM $this->tableName WHERE order_id= $id";

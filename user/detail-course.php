@@ -102,7 +102,7 @@ $course = $cou->getOne($id);
                  src="../<?php echo $course->image ?>"
                  alt="">
             <div class="bg-gray-100  px-3 text-lg">
-                <p class="text-2xl fw-bold text-green-600 mb-0 pt-4 pb-3"><?php echo number_format($course->price) . ' $' ?></p>
+
                 <div class="d-flex align-items-center text-xl py-2">
                     <p class="mb-0 pr-4"><i class="fa-solid fa-clock text-green-600"></i></p>
                     <div>
@@ -119,6 +119,19 @@ $course = $cou->getOne($id);
                 </div>
 
             </div>
+            <?php if(isset($_GET['status']) && $_GET['status'] == 'success'){ ?>
+            <div>
+                <button type="button"
+                        class="btn text-white text-xl py-2 bg-amber-400 hover:bg-amber-400 border-none w-100">
+                    Bắt đầu học
+                </button>
+            </div>
+            <?php
+            }else
+            {
+
+            ?>
+                <h4 class="text-2xl fw-bold text-green-600 mb-0 pt-4 pb-3 text-center"><?php echo number_format($course->price) . ' VND' ?></h4>
             <div>
                 <?php
                 if (isset($_SESSION['user'])) { ?>
@@ -139,6 +152,7 @@ $course = $cou->getOne($id);
                     Nhận tư vấn
                 </button>
             </div>
+            <?php } ?>
         </div>
     </div>
 </div>
