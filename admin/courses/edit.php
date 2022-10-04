@@ -28,36 +28,36 @@ include_once '../commons/admin-header.php';
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-md-2  p-0 border-end h-screen position-relative">
+        <div class="col-3 col-md-2  p-0 border-end h-screen position-relative">
             <div id="slidebars">
                 <ul class="mt-1">
                     <li style="border-top-left-radius:10px;
         border-top-right-radius:10px ;" class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
-                        <a class="text-xl hover:text-white font-bold" href="./../admin.php">
+                        <a class="text-sm hover:text-white font-bold" href="./../admin.php">
                             <i class="me-2 text-red-600 fa-solid fa-house"></i>Trang chủ
                         </a>
                     </li>
 
                     <li class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
-                        <a class="text-xl hover:text-white font-bold" href="./../lecturer/list.php">
+                        <a class="text-sm hover:text-white font-bold" href="./../lecturer/list.php">
                             <i class="text-indigo-800 me-2 fa-solid fa-chalkboard-user"></i>Danh sách giảng viên
                         </a>
                     </li>
 
                     <li class="p-3 border-bottom bg-blue-400 text-white">
-                        <a class="text-xl hover:text-white font-bold" href="">
+                        <a class="text-sm hover:text-white font-bold" href="">
                             <i class="text-yellow-600 me-2 fa-solid fa-calendar"></i>Danh sách khoá học
                         </a>
                     </li>
 
                     <li class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
-                        <a class="text-xl hover:text-white font-bold" href="./../user/list.php">
+                        <a class="text-sm hover:text-white font-bold" href="./../user/list.php">
                             <i class="text-yellow-500 me-2 fa-solid fa-user-gear"></i>Danh sách người dùng
                         </a>
                     </li>
 
                     <li class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
-                        <a class="text-xl hover:text-white font-bold" href="./../cart/list.php">
+                        <a class="text-sm hover:text-white font-bold" href="./../cart/list.php">
                             <i class="me-2 text-green-700 fa-regular fa-images"></i>Đơn đặt hàng
                         </a>
                     </li>
@@ -65,7 +65,7 @@ include_once '../commons/admin-header.php';
                 </ul>
             </div>
         </div>
-        <div class="col-12 col-md-10 p-0">
+        <div class="col-9 col-md-10 p-0">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content p-5">
                     <h5 class="modal-title text-2xl text-center" id="exampleModalLabel">Chỉnh sửa khoá học</h5>

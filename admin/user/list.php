@@ -21,31 +21,31 @@ if (isset($_GET['action'])) {
                 <ul class="mt-1">
                     <li style="border-top-left-radius:10px;
         border-top-right-radius:10px ;" class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
-                        <a class="text-xl hover:text-white font-bold" href="./../admin.php">
+                        <a class="text-sm hover:text-white font-bold" href="./../admin.php">
                             <i class="me-2 text-red-600 fa-solid fa-house"></i>Trang chủ
                         </a>
                     </li>
 
                     <li class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
-                        <a class="text-xl hover:text-white font-bold" href="./../lecturer/list.php">
+                        <a class="text-sm hover:text-white font-bold" href="./../lecturer/list.php">
                             <i class="text-indigo-800 me-2 fa-solid fa-chalkboard-user"></i>Danh sách giảng viên
                         </a>
                     </li>
 
                     <li class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
-                        <a class="text-xl hover:text-white font-bold" href="./../courses/list.php">
+                        <a class="text-sm hover:text-white font-bold" href="./../courses/list.php">
                             <i class="text-yellow-600 me-2 fa-solid fa-calendar"></i>Danh sách lớp học
                         </a>
                     </li>
 
                     <li class="p-3 border-bottom bg-blue-400 text-white">
-                        <a class="text-xl hover:text-white font-bold" href="">
+                        <a class="text-sm hover:text-white font-bold" href="">
                             <i class="text-yellow-500 me-2 fa-solid fa-user-gear"></i>Danh sách người dùng
                         </a>
                     </li>
 
                     <li class="p-3 border-bottom hover:bg-blue-400 hover:text-white">
-                        <a class="text-xl hover:text-white font-bold" href="./../cart/list.php">
+                        <a class="text-sm hover:text-white font-bold" href="./../cart/list.php">
                             <i class="me-2 text-green-700 fa-regular fa-images"></i>Đơn đặt hàng
                         </a>
                     </li>
