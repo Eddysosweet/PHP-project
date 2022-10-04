@@ -25,7 +25,8 @@ $list = $dal->getList();
                     </li>
 
                     <li class="p-3 border-bottom bg-blue-400 text-white">
-                        <a class="text-sm hover:text-white font-bold" href="">Danh sách giảng viên
+                        <a class="text-sm hover:text-white font-bold" href="">
+                            <i class="text-indigo-800 me-2 fa-solid fa-chalkboard-user"></i>Danh sách giảng viên
                         </a>
                     </li>
 
@@ -90,14 +91,6 @@ $list = $dal->getList();
             </div>
             <a href="add.php" class="btn btn-primary mx-5 my-3">Thêm</a>
 
-            <div class="col-4 center">
-                <form class="mx-5 my-3">
-                    <div class="flex justify-center">
-                        <input class="form-control me-2 " type="search" placeholder="Tìm kiếm" aria-label="Search">
-                        <button class="btn btn-outline-success " type="submit">Tìm kiếm</button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
 </div>

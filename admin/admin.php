@@ -48,9 +48,9 @@ session_start();
                 </ul>
             </li>
             <?php } else { ?>
-                <li class="text-white text-lg font-bold " id="navbarDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Đăng nhập
+                <li class="text-white text-lg font-bold "
+                >
+                    <a href="login-admin.php">Đăng nhập</a>
                 </li>
                 <?php
             }

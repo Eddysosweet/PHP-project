@@ -2,13 +2,16 @@
 include_once '../commons/admin-header.php';
 include_once './../../DAL/UserDAL.php   ';
 $dal = new UserDAL();
-$list = $dal->getList();
-if (isset($_GET['action'])) {
-    $id = $_GET['id'];
-    $user = $dal->getOne($id);
-    if (is_numeric($id) && $_GET['action'] == 'delete') {
-        $dal->deleteOne($id);
+$id = $_GET['id'];
+$user = $dal->getOne($id);
+
+if (isset($_POST['name'])) {
+    if($_POST['name'] && $_POST['email'] && $_POST['phone'] && $_POST['password']) {
+        $dal->updateOne($id,$_POST);
         header("location:list.php");
+    }else {
+        $_SESSION['fail'] = 'Bạn phải nhập tất cả thông tin';
+        header('location:add.php');
     }
 }
 ?>
@@ -54,45 +57,34 @@ if (isset($_GET['action'])) {
             </div>
         </div>
         <div class="col-12 col-md-10 p-2">
-            <h2 class="uppercase font-bold text-center mt-5">Danh sách tài khoản</h2>
-            <div class="mx-5 my-3">
-                <table class="table table-bordered container m-auto text-center" cellpadding="20" cellspacing="0">
-                    <thead class="bg-sky-500 text-white">
-                    <tr>
-                        <th>STT</th>
-                        <th>Tên</th>
-                        <th>Email</th>
-                        <th>Mật khẩu</th>
-                        <th>Số điện thoại</th>
-                        <th colspan="2">Thao tác</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <?php
-                    $i = 1;
-                    foreach ($list as $value) {
-                        ?>
-                        <tr>
-                            <td><?php echo $i ?></td>
-                            <td><?php echo $value->name ?></td>
-                            <td><?php echo $value->email ?></td>
-                            <td><?php echo $value->password ?></td>
-                            <td><?php echo $value->phone ?></td>
-                            <td class="pr-0"><a class="btn btn-warning " href="edit.php?id=<?php echo $value->id; ?>">Sửa</a>
-                            </td>
-                            <td class="pl-0"><a onclick="return confirm('Bạn có chắc chắn muốn xoá tài khoản này?')"
-                                                class="btn btn-danger"
-                                                href="?action=delete&id=<?php echo $value->id; ?>">Xoá</a></td>
-                        </tr>
-                        <?php
-                        $i++;
-                    }
-                    ?>
-                    </tbody>
-                </table>
+            <h2 class="uppercase font-bold text-center mt-5">Thay đổi thông tin tài khoản</h2>
+            <div class="modal-body mt-5">
+                <form method="post" class="row g-3" enctype="multipart/form-data">
+                    <div class="my-3">
+                        <h4 class="my-2">Họ và tên </h4>
+                        <input type="text" name="name" class="form-control" placeholder="họ và tên" value="<?php echo $user->name ?>">
+                    </div>
+                    <div class="my-3">
+                        <h4 class="my-2">Email</h4>
+                        <input type="email" name="email" class="form-control" placeholder="email" value="<?php echo $user->email ?>">
+                    </div>
+                    <div class="my-3">
+                        <h4 class="my-2">Mật khẩu</h4>
+                        <input type="text" name="password" class="form-control" placeholder="mật khẩu" value="<?php echo $user->password ?>">
+                    </div>
+                    <div class="my-3">
+                        <h4 class="my-2">Số điện thoại</h4>
+                        <input type="text" name="phone" class="form-control" placeholder="số điện thoại" value="<?php echo $user->phone ?>">
+                    </div>
+                    <div class="text-red-500 mb-2 text-sm md:text-lg"><?php if(isset($_SESSION['fail'])){
+                            echo $_SESSION['fail'];
+                            unset($_SESSION['fail']);
+                        } ?></div>
+                    <div class="my-3">
+                        <input type="submit" value="Cập nhật" class="btn px-5 text-white bg-success">
+                    </div>
+                </form>
             </div>
-            <a href="add.php" class="btn btn-primary mx-5 my-3">Thêm</a>
 
         </div>
     </div>

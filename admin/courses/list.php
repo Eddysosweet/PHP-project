@@ -98,14 +98,6 @@ $list = $dal->getList();
                 </div>
                 <a href="add.php" class="btn btn-primary mx-5 my-3">Thêm khoá học</a>
 
-                <div class="col-4 center">
-                    <form class="mx-5 my-3">
-                        <div class="flex justify-center">
-                            <input class="form-control me-2 " type="search" placeholder="Tìm kiếm" aria-label="Search">
-                            <button class="btn btn-outline-success " type="submit">Tìm kiếm</button>
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
     </div>

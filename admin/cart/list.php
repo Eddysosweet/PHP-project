@@ -5,6 +5,13 @@ include_once './../../DAL/UserDAL.php';
 $dal = new OrderDAL();
 $user = new UserDAL();
 $list = $dal->getList();
+if (isset($_GET['action'])) {
+    $id = $_GET['id'];
+    if (is_numeric($id) && $_GET['action'] == 'delete') {
+        $dal->deleteOne($id);
+        header("location:list.php");
+    }
+}
 ?>
 
 <div class="container-fluid">
@@ -58,7 +65,7 @@ $list = $dal->getList();
                         <th>Giá</th>
                         <th>Trạng thái</th>
                         <th>Người tạo</th>
-                        <th colspan="2">Thao tác</th>
+                        <th colspan="3">Thao tác</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -78,6 +85,9 @@ $list = $dal->getList();
                             </td>
                             <td class="pr-0"><a class="btn btn-warning " href="edit.php?id=<?php echo $value->id; ?>">Cập nhật trạng thái</a>
                             </td>
+                            <td class="pl-0"><a onclick="return confirm('Are you sure you want to delete ?')"
+                                                class="btn btn-danger"
+                                                href="?action=delete&id=<?php echo $value->id; ?>">Xoá</a></td>
                         </tr>
                         <?php
                         $i++;
