@@ -3,20 +3,27 @@ include_once '../DAL/LecturerDAL.php';
 include_once '../DAL/CourseDAL.php';
 $teacher = new TeacherDAL();
 $course = new CourseDAL();
-$so = $course->countCourse();
-$sotrang = ceil($so / 12);
-$vitri = 0;
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $id = $_GET['id'];
-    $vitri = ($id - 1)*12;
+if(isset($_GET['search']) && $_GET['search']){
+    $str = $_GET['search'];
+    $rs  = $course->search($str);
+}else {
+    $so = $course->countCourse();
+    $sotrang = ceil($so / 12);
+    $vitri = 0;
+    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+        $id = $_GET['id'];
+        $vitri = ($id - 1) * 12;
+    }
+    $rs = $course->getListByPage($vitri, 12);
 }
-$rs = $course->getListByPage($vitri,12);
 ?>
 
 <?php include_once '../commons/head.php'; ?>
 <body>
 <?php include_once '../commons/body-menu.php'; ?>
 <?php
+$arr = array();
+if(isset($_SESSION['user'])){
 include_once '../DAL/UserDAL.php';
 include_once '../DAL/OrderDetailDAL.php';
 $email = $_SESSION['user']['email'];
@@ -24,10 +31,9 @@ $user = new  UserDAL();
 $user_id = $user->getOneByEmail($email)->id;
 $order_detail = new OrderDetailDAL();
 $mc= $order_detail->getListByUserId($user_id);
-$arr = array();
 foreach ($mc as $item){
     $arr[] = $item->course_id;
-}
+}}
 ?>
 
 <div class="content border-bottom py-3">
@@ -63,6 +69,10 @@ foreach ($mc as $item){
             ?>
         </div>
     </div>
+    <?php if(isset($_GET['search']) && $_GET['search']){
+
+
+    }else{?>
     <nav class="container" aria-label="Page navigation example">
         <ul class="pagination justify-content-end">
             <?php
@@ -81,6 +91,9 @@ foreach ($mc as $item){
 
         </ul>
     </nav>
+    <?php
+    }
+    ?>
 </div>
 
 <?php include_once '../commons/body-footer.php'; ?>

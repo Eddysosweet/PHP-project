@@ -16,6 +16,12 @@ class CourseDAL extends DB implements ICRUD
         $rs = $this->pdo->query($sql);
         return $rs->fetchAll(PDO::FETCH_OBJ);
     }
+    public function search($str)
+    {
+        $sql = "SELECT * FROM $this->tableName WHERE name OR description LIKE '%$str%'";
+        $rs = $this->pdo->query($sql);
+        return $rs->fetchAll(PDO::FETCH_OBJ);
+    }
 
     public function getOne($id)
     {

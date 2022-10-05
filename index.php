@@ -196,7 +196,7 @@ session_start();
 
                 <li class="list-group-item list-group-item-action">
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit"><i
                                     class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
