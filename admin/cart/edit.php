@@ -9,9 +9,9 @@ $order = $dal->getOne($id);
 $name = $user->getOne($order->user_id)->name;
 if(isset($_POST['status']) && $_POST['status']){
     $dal->updateOne($id,$_POST['status']);
+    header("location:list.php");
 }
 ?>
-
 <div class="container-fluid">
 
     <div class="row">
