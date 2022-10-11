@@ -95,6 +95,14 @@ class UserDAL extends DB implements ICRUD
         $rs = $prp->fetchColumn();
         return $rs;
     }
+    public function checkEmail($email)
+    {
+        $prp = $this->pdo->prepare("SELECT count(*) FROM $this->tableName WHERE email=:email");
+        $prp->bindParam(':email', $email);
+        $prp->execute();
+        $rs = $prp->fetchColumn();
+        return $rs;
+    }
 
 }
 

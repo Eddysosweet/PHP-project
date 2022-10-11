@@ -71,7 +71,7 @@ $item = $order->getOne($id);
                 ?>
 
                 <div class="container my-4 text-center">
-                    <a type="submit" href="handle_order.php?user_id=<?php echo $user_id ?>&total=<?php echo $total ?>"
+                    <a type="submit" href="order.php"
                        class="btn text-white text-xl bg-green-500 hover:bg-green-400 py-2 px-5 border-none my-3 mx-2 ">
                         Ok</a>
                 </div>

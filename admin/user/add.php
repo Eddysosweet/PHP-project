@@ -1,16 +1,5 @@
 <?php
 include_once '../commons/admin-header.php';
-include_once './../../DAL/UserDAL.php   ';
-$dal = new UserDAL();
-if (isset($_POST['name'])) {
-if($_POST['name'] && $_POST['email'] && $_POST['phone'] && $_POST['password']) {
-    $dal->addOne($_POST);
-    header("location:list.php");
-}else {
-    $_SESSION['fail'] = 'Bạn phải nhập tất cả thông tin';
-    header('location:add.php');
-}
-}
 ?>
 
 <div class="container-fluid">
@@ -56,7 +45,7 @@ if($_POST['name'] && $_POST['email'] && $_POST['phone'] && $_POST['password']) {
         <div class="col-12 col-md-10 p-2">
             <h2 class="uppercase font-bold text-center mt-5">Thêm tài khoản</h2>
             <div class="modal-body mt-5">
-                <form method="post" class="row g-3" enctype="multipart/form-data">
+                <form action="handle-add.php" method="post" class="row g-3" enctype="multipart/form-data">
                     <div class="my-3">
                         <h4 class="my-2">Họ và tên </h4>
                         <input type="text" name="name" class="form-control" placeholder="họ và tên">
@@ -64,6 +53,10 @@ if($_POST['name'] && $_POST['email'] && $_POST['phone'] && $_POST['password']) {
                     <div class="my-3">
                         <h4 class="my-2">Email</h4>
                         <input type="email" name="email" class="form-control" placeholder="email">
+                        <div class="text-red-500 mb-2 text-sm md:text-lg"><?php if(isset($_SESSION['failemail'])){
+                                echo $_SESSION['failemail'];
+                                unset($_SESSION['failemail']);
+                            } ?></div>
                     </div>
                     <div class="my-3">
                         <h4 class="my-2">Mật khẩu</h4>
