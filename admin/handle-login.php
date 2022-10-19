@@ -27,7 +27,7 @@ if (isset($_POST['username'])) {
         }
     }else{
         $_SESSION['fail'] = 'Bạn phải nhập tên đăng nhập và mật khẩu';
-        header("location:login.php");
+        header("location:login-admin.php");
     }
 }
 

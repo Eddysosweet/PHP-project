@@ -103,6 +103,12 @@ class UserDAL extends DB implements ICRUD
         $rs = $prp->fetchColumn();
         return $rs;
     }
+    public function searchUser($str)
+    {
+        $sql = "SELECT * FROM $this->tableName WHERE name LIKE '%$str%'";
+        $rs = $this->pdo->query($sql);
+        return $rs->fetchAll(PDO::FETCH_OBJ);
+    }
 
 }
 

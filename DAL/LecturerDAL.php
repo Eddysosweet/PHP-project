@@ -66,6 +66,13 @@ class TeacherDAL extends DB implements ICRUD
             return false;
         }
     }//U
+    public function searchTeacher($str)
+    {
+        $sql = "SELECT * FROM $this->tableName WHERE name LIKE '%$str%'";
+        $rs = $this->pdo->query($sql);
+        return $rs->fetchAll(PDO::FETCH_OBJ);
+    }
+
 }
 
 ?>
