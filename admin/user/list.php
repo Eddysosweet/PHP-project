@@ -62,9 +62,8 @@ if (isset($_GET['action'])) {
                         <th>STT</th>
                         <th>Tên</th>
                         <th>Email</th>
-                        <th>Mật khẩu</th>
                         <th>Số điện thoại</th>
-                        <th colspan="2">Thao tác</th>
+                        <th>Thao tác</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -77,10 +76,7 @@ if (isset($_GET['action'])) {
                             <td><?php echo $i ?></td>
                             <td><?php echo $value->name ?></td>
                             <td><?php echo $value->email ?></td>
-                            <td><?php echo $value->password ?></td>
                             <td><?php echo $value->phone ?></td>
-                            <td class="pr-0"><a class="btn btn-warning " href="edit.php?id=<?php echo $value->id; ?>">Sửa</a>
-                            </td>
                             <td class="pl-0"><a onclick="return confirm('Bạn có chắc chắn muốn xoá tài khoản này?')"
                                                 class="btn btn-danger"
                                                 href="?action=delete&id=<?php echo $value->id; ?>">Xoá</a></td>
@@ -92,7 +88,6 @@ if (isset($_GET['action'])) {
                     </tbody>
                 </table>
             </div>
-            <a href="add.php" class="btn btn-primary mx-5 my-3">Thêm</a>
 
         </div>
     </div>

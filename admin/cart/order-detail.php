@@ -1,11 +1,11 @@
 <?php
 include_once '../commons/admin-header.php';
-include_once './../../DAL/CartDetailDAL.php';
+include_once './../../DAL/OrderDetailDAL.php';
 include_once './../../DAL/CourseDAL.php';
-$dal = new CartDetailDAL();
+$dal = new OrderDetailDAL();
 $course = new CourseDAL();
 $id = $_GET['id'];
-$list = $dal->getListByCartId($id);
+$list = $dal->getListByOrderId($id);
 ?>
 
 <div class="container-fluid">
